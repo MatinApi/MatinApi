@@ -205,12 +205,12 @@ class Matin {
         $connection=$DB_Conection;
         $pattern = '/^([a-zA-Z_]+)\((.*?)\)(\.delete|\.push|\.update)?(\{(.*)\})?$/';
         if (preg_match($pattern, $MatinQury, $matches)) {
-            $tableName = $matches[1] ?? ''; // نام جدول
-            $conditions = $matches[2] ?? ''; // شرایط
-            $operation = $matches[3] ?? ''; // عملیات delete، push یا update
-            $values = $matches[5] ?? ''; // مقادیر جدید
+            $tableName = $matches[1] ?? ''; 
+            $conditions = $matches[2] ?? ''; 
+            $operation = $matches[3] ?? ''; 
+            $values = $matches[5] ?? ''; 
 
-            // تجزیه و تحلیل شرایط به منظور ساخت دستور WHERE
+            
             $conditionPairs = explode(',', $conditions);
             $whereClause = '';
             foreach ($conditionPairs as $pair) {
@@ -225,16 +225,16 @@ class Matin {
                 $whereClause .= $column . ' = ' . $value;
             }
 
-            // ایجاد دستور SQL
+            
             if ($operation === '.delete') {
                 $sql = "DELETE FROM $tableName WHERE $whereClause";
 
-                // اجرای دستور SQL DELETE
-                // به عنوان مثال:
+                
+                
                 mysqli_query($connection, $sql);
-                // رکورد با موفقیت حذف شد.
+               
             } elseif ($operation === '.push' && !empty($values)) {
-                // تجزیه و تحلیل مقادیر جدید
+               
                 $valuePairs = explode(',', $values);
                 $columns = '';
                 $data = '';
@@ -258,15 +258,15 @@ class Matin {
                     
                 }
 
-                // ایجاد دستور SQL
+               
                 $sql = "INSERT INTO $tableName ($columns) VALUES ($data)";
                 
-                // اجرای دستور SQL INSERT
-                // به عنوان مثال:
+                
+                
                 mysqli_query($connection, $sql);
-                // رکورد با موفقیت اضافه شد.
+                
             } elseif ($operation === '.update' && !empty($values)) {
-                // تجزیه و تحلیل مقادیر جدید
+               
                 $valuePairs = explode(',', $values);
                 $updateData = '';
                 foreach ($valuePairs as $pair) {
@@ -281,24 +281,24 @@ class Matin {
                     $updateData .= $column . ' = ' . $value;
                 }
 
-                // ایجاد دستور SQL
+                
                 $sql = "UPDATE $tableName SET $updateData WHERE $whereClause";
 
-                // اجرای دستور SQL UPDATE
-                // به عنوان مثال:
+                
+                
                 
                 mysqli_query($connection, $sql);
-                // رکورد با موفقیت به روز شد.
+                
             } else {
-                // ایجاد دستور SQL
+               
                 $sql = "SELECT * FROM $tableName WHERE $whereClause";
                 
 
-                // اجرای دستور SQL SELECT
-                // به عنوان مثال:
+                
+               
                 $result = mysqli_query($connection, $sql);
                 print_r($result);
-                // ادامه کار با نتیجه
+                
             }
         }
             }
@@ -321,12 +321,12 @@ class Matin {
                 $connection=$DB_Conection;
         $pattern = '/^([a-zA-Z_]+)\((.*?)\)(\.delete|\.push|\.update)?(\{(.*)\})?$/';
         if (preg_match($pattern, $MatinQury, $matches)) {
-            $tableName = $matches[1] ?? ''; // نام جدول
-            $conditions = $matches[2] ?? ''; // شرایط
-            $operation = $matches[3] ?? ''; // عملیات delete، push یا update
-            $values = $matches[5] ?? ''; // مقادیر جدید
+            $tableName = $matches[1] ?? ''; 
+            $conditions = $matches[2] ?? ''; 
+            $operation = $matches[3] ?? ''; 
+            $values = $matches[5] ?? ''; 
 
-            // تجزیه و تحلیل شرایط به منظور ساخت دستور WHERE
+            
             $conditionPairs = explode(',', $conditions);
             $whereClause = '';
             foreach ($conditionPairs as $pair) {
@@ -341,16 +341,16 @@ class Matin {
                 $whereClause .= $column . ' = ' . $value;
             }
 
-            // ایجاد دستور SQL
+            
             if ($operation === '.delete') {
                 $sql = "DELETE FROM $tableName WHERE $whereClause";
 
-                // اجرای دستور SQL DELETE
-                // به عنوان مثال:
                 
-                // رکورد با موفقیت حذف شد.
+               
+                
+                
             } elseif ($operation === '.push' && !empty($values)) {
-                // تجزیه و تحلیل مقادیر جدید
+                
                 $valuePairs = explode(',', $values);
                 $columns = '';
                 $data = '';
@@ -374,15 +374,15 @@ class Matin {
                     
                 }
 
-                // ایجاد دستور SQL
+                
                 $sql = "INSERT INTO $tableName ($columns) VALUES ($data)";
                 mysqli_query($DB_Conection,$sql);
-                // اجرای دستور SQL INSERT
-                // به عنوان مثال:
+               
                 
-                // رکورد با موفقیت اضافه شد.
+                
+               
             } elseif ($operation === '.update' && !empty($values)) {
-                // تجزیه و تحلیل مقادیر جدید
+                
                 $valuePairs = explode(',', $values);
                 $updateData = '';
                 foreach ($valuePairs as $pair) {
@@ -397,23 +397,19 @@ class Matin {
                     $updateData .= $column . ' = ' . $value;
                 }
 
-                // ایجاد دستور SQL
+               
                 $sql = "UPDATE $tableName SET $updateData WHERE $whereClause";
                 mysqli_query($DB_Conection,$sql);
-                // اجرای دستور SQL UPDATE
-                // به عنوان مثال:
+               
                 
                 
-                // رکورد با موفقیت به روز شد.
+               
             } else {
-                // ایجاد دستور SQL
+                
                 $sql = "SELECT * FROM $tableName WHERE $whereClause";
                 
 
-                // اجرای دستور SQL SELECT
-                // به عنوان مثال:
-                
-                // ادامه کار با نتیجه
+
             }
         }
 
@@ -427,29 +423,27 @@ class Matin {
 
     public static  function Matin_API_DB_Json($MatinQury,$DB_Conection){
               $Data=[];
-                // if($MatinQury=="Defult_Api" or $MatinQury=="Defult"  or $MatinQury == true ){
-                //     $MatinQury='';
-                //     $Json= file_get_contents('php://input');
-                //     $Obj = json_decode($Json ,true );
-                //     $MatinQury = $Obj['MatinQw'];
+                if($MatinQury=="Defult_Api" or $MatinQury=="Defult"  or $MatinQury == true ){
+                    $MatinQury='';
+                    $Json= file_get_contents('php://input');
+                    $Obj = json_decode($Json ,true );
+                    $MatinQury = $Obj['MatinQw'];
                     
-                // }else{
-                    // Matin::HomePage();
-                // }
-                if($MatinQury==""){
-
+                }elseif($MatinQury==''){
+                    Matin::HomePage();
                 }
+
                 
 
                 $connection=$DB_Conection;
         $pattern = '/^([a-zA-Z_]+)\((.*?)\)(\.delete|\.push|\.update)?(\{(.*)\})?$/';
         if (preg_match($pattern, $MatinQury, $matches)) {
-            $tableName = $matches[1] ?? ''; // نام جدول
-            $conditions = $matches[2] ?? ''; // شرایط
-            $operation = $matches[3] ?? ''; // عملیات delete، push یا update
-            $values = $matches[5] ?? ''; // مقادیر جدید
+            $tableName = $matches[1] ?? ''; 
+            $conditions = $matches[2] ?? '';
+            $operation = $matches[3] ?? '';
+            $values = $matches[5] ?? ''; 
 
-            // تجزیه و تحلیل شرایط به منظور ساخت دستور WHERE
+            
             $conditionPairs = explode(',', $conditions);
             $whereClause = '';
             foreach ($conditionPairs as $pair) {
@@ -464,14 +458,13 @@ class Matin {
                 $whereClause .= $column . ' = ' . $value;
             }
 
-            // ایجاد دستور SQL
+            
             if ($operation === '.delete') {
                 $sql = "DELETE FROM $tableName WHERE $whereClause";
 
-                // اجرای دستور SQL DELETE
-                // به عنوان مثال:
+
                 mysqli_query($DB_Conection,$sql);
-                // رکورد با موفقیت حذف شد.
+
             }
             elseif(!empty($tableName)&&empty($conditions)&&empty($operation)&&empty($values)){
                                 $sql = "SELECT * FROM $tableName";
@@ -486,7 +479,7 @@ header("Content-Type: application/json");
 echo json_encode($Data);
             }
             elseif ($operation === '.push' && !empty($values)) {
-                // تجزیه و تحلیل مقادیر جدید
+               
                 $valuePairs = explode(',', $values);
                 $columns = '';
                 $data = '';
@@ -510,15 +503,14 @@ echo json_encode($Data);
                     
                 }
 
-                // ایجاد دستور SQL
+                
                 $sql = "INSERT INTO $tableName ($columns) VALUES ($data)";
                 mysqli_query($DB_Conection,$sql);
-                // اجرای دستور SQL INSERT
-                // به عنوان مثال:
+
                 
-                // رکورد با موفقیت اضافه شد.
+
             } elseif ($operation === '.update' && !empty($values)) {
-                // تجزیه و تحلیل مقادیر جدید
+
                 $valuePairs = explode(',', $values);
                 $updateData = '';
                 foreach ($valuePairs as $pair) {
@@ -533,16 +525,15 @@ echo json_encode($Data);
                     $updateData .= $column . ' = ' . $value;
                 }
 
-                // ایجاد دستور SQL
+
                 $sql = "UPDATE $tableName SET $updateData WHERE $whereClause";
                 mysqli_query($DB_Conection,$sql);
-                // اجرای دستور SQL UPDATE
-                // به عنوان مثال:
+
                 
                 
-                // رکورد با موفقیت به روز شد.
+
             } else {
-                // ایجاد دستور SQL
+
                 $sql = "SELECT * FROM $tableName WHERE $whereClause";
                 $DoSql=mysqli_query($DB_Conection,$sql);
 while($Row=mysqli_fetch_assoc($DoSql)){
@@ -552,10 +543,7 @@ while($Row=mysqli_fetch_assoc($DoSql)){
 }
 header("Content-Type: application/json");
 echo json_encode($Data);
-                // اجرای دستور SQL SELECT
-                // به عنوان مثال:
-                
-                // ادامه کار با نتیجه
+
             }
         }
 
@@ -566,30 +554,27 @@ echo json_encode($Data);
 
              }
 
-    // public static function Matin_Php($Code){
-    //     $Final=eval($Code);
-    //     echo $Final;
-    // }
+
 
 }
-// echo $sql;
-// $MatinQury1="visit(id=453)";
-// Matin::Matin_DB($MatinQury1,$conn);
 
 
 
-// نمایش آرایه نهایی
-// print_r($result);
+
+
 
 $conn = mysqli_connect("localhost","root","","matinapi");
 Matin::Matin_API_DB_Json('',$conn );
-// Matin::Matin_API_DB("Defult_Api",$conn);
 
 
-//$Matin = new Matin;
 
-//Matin::Matin_Php('<div>></div> ');
+//Code:
+//  code                                    =>    work
 
-
+//   user()                                 =>    select from * user
+//   user(id=1)                             =>    select from * user wher id=1
+//   user(id1).delete                       =>    DELETE FROM user WHERE id=1
+//   user().push{username:Matin}            =>    INSERT INTO user (username) VALUES (Matin)    
+//   user(id=1).update{username:MatinApi}   =>    UPDATE user SET username=MatinApi WHERE $whereClause
 
 ?>
