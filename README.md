@@ -1,24 +1,24 @@
-
+#Hello Welcome to MatinApi
 **MatinApi/MatinApi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 
 
-##Hello Welcome to MatinApi
 
 
-#you can write your api or use the defult api 
+
+##you can write your api or use the defult api 
 
 First you shold to habe the MatinApi.php From https://github.com/MatinApi/MatinApi then you can write your api inide it or import in youre php file
 
-#DefultApi:
+##DefultApi:
 
-#you can use the defult api by Matin_API_DB_Json function in MAtin Class:
+##you can use the defult api by Matin_API_DB_Json function in MAtin Class:
     Matin::Matin_API_DB_Json('','');
     -1_ the firest prametr is the api request abele that shold by true : Matin::Matin_API_DB_Json(true,'');
     -2_the secound prametr is aboute the cunecction to MysqlDB : Matin::Matin_API_DB_Json(true,$conn);
 
 
-    #Now You can use it Use it :
+    ##Now You can use it Use it :
        - in hear we have the oun sintax from MAtinApi that like the function usage:
          -its very easer and shorter than sql sintax form example you what to show the Matin tabel in sql you shold write SELECT * from Matin but in MatinApi you write Matin();
 
@@ -28,7 +28,7 @@ First you shold to habe the MatinApi.php From https://github.com/MatinApi/MatinA
            - 3_Insertin                        Sql Code:INSERT INTO Matin (Matinname) VALUES (Matin);   MatinApi Code: Matin().push{Matinname:Matin}
             -5_Update                          Sql Code:UPDATE Matin SET Matinname=MatinApi WHERE $whereClause; MatinApi Code :Matin(id=1).update{Matinname:MatinApi}
 
-    #Usage:
+    ##Usage:
         Send this Matin Api Code to your server that have the MatinApi Code;
 
 
@@ -50,8 +50,8 @@ First you shold to habe the MatinApi.php From https://github.com/MatinApi/MatinA
             Go to the foure param from Matin::Matin_API_DB_Json(true,$conn,['MatinTabel'=>'match'],[]); the first param from this array is the tabele name like this['MatinTabel'] and the value is one array and the first param is the line like this ['MatinTabel'=>['line']] and the value of that is One Array is the name of the culomn and the settin for thakr like this  ['MatinTabel'=>['line'=>['id'=>'open','UserPassword'=>'close']]] the setting for culmn is open it mean if user what see db can see it and the closde it mean you can see that;
 
 
-#the Custome Api :
-    #Build Youre Api Very Faster And Easyer And Safety useing Matin::MAtin_API_Custome() function like :
+##the Custome Api :
+    ##Build Youre Api Very Faster And Easyer And Safety useing Matin::MAtin_API_Custome() function like :
         -Create Api By Matin::MAtin_API_Custome() set first parametr to your Get Methode Name for example MatinApi  Matin::MAtin_API_Custome('MatinApi') and in secound parameter is function that you what to do your code in side it and the function should have the one varabel to pass the value reived from the user to your function like this Matin::MAtin_API_Custome('MatinApi' , function ($value){ echo $value} ); and if you send MatinApi:'hello' the youre Api Get Methode Name that in example it names MatinApi you get hello;
    # Write Get Mothde  inside the Youre Api form get more valueus useing Api() function:
       -  fist param is the Get methode name an secound is the function should have the value to get value of user inserted like this Api('UsaerName',function ($value){echo $value});
