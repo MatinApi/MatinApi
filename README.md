@@ -1,16 +1,13 @@
-#Hello Welcome to MatinApi
-**MatinApi/MatinApi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# MatinApi
 
+Welcome to MatinApi! This guide will help you get started with using the MatinApi PHP class for creating and managing your API.
 
+## Getting Started
 
+First, download the `MatinApi.php` file from [MatinApi GitHub repository](https://github.com/MatinApi/MatinApi). You can write your own API inside it or import it into your PHP file.
 
+## Default API
 
-
-##you can write your api or use the defult api 
-
-First you shold to habe the MatinApi.php From https://github.com/MatinApi/MatinApi then you can write your api inide it or import in youre php file
-
-#DefultApi:
 
 #you can use the defult api by Matin_API_DB_Json function in MAtin Class:
     Matin::Matin_API_DB_Json('','');
