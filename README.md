@@ -9,7 +9,7 @@ First, download the `MatinApi.php` file from [MatinApi GitHub repository](https:
 ## Default API
 
 
-#you can use the defult api by Matin_API_DB_Json function in MAtin Class:
+--you can use the defult api by Matin_API_DB_Json function in MAtin Class:
     Matin::Matin_API_DB_Json('','');
     -1_ the firest prametr is the api request abele that shold by true : Matin::Matin_API_DB_Json(true,'');
     -2_the secound prametr is aboute the cunecction to MysqlDB : Matin::Matin_API_DB_Json(true,$conn);
